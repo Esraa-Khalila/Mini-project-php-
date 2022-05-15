@@ -16,6 +16,7 @@
     <h3>Add Product<h3>
     <input type="text" placeholder="Product Name" name='product_Name'  ><br>
     <input type="text" placeholder="Product Description" name='product_Description' required><br>
+    <input type='file' name='image'> 
     <input type="submit" name='submit' value="Add" id='bgBtn'><br>
     <a href='View-Product.php'>Go to view page</a>
   </form>
@@ -31,6 +32,7 @@
   <th >S.N</th>
     <th >Name</th>
     <th  >dec</th>
+    <th>image</th>
  </tr>
 <?php 
 $count = 0 ;
@@ -40,12 +42,28 @@ foreach($name as $key=>$value){
    <td  style='border:1px solid black ; padding:20px'>$count</td>
   <td  style='border:1px solid black ; padding:15px'>$name[$key]</td>
   <td  style='border:1px solid black ; padding:15px'>$dec[$key]</td>
+
   </td>
 
   <tr>
-" ;
+";
+
 }   
 ?>
+      <td class="text-primary">
+                                <?php 
+                                if($image!='')
+                                {
+                                  ?>
+                                  <img src="http://localhost:8080/mini-project-php-/images/category/<?php echo $image;?>" width='120px'>
+                                  <?php
+                              } 
+                              else 
+                              {
+                                  echo "<div class='error'>image not added</div>";
+                              }
+                              ?>
+                          </td>
 
 </table>
 </div>
